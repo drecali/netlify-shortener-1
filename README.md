@@ -80,7 +80,8 @@ Your project should have a `_redirects` file that looks like this:
 ```
 
 This module exposes a binary that you should use in your `package.json` scripts.
-You also need to add a `baseUrl` to your `package.json`:
+You also need to add a `baseUrl` to your `package.json`. The `baseUrl` should be
+the domain you will use for the URL shortener:
 
 ```json
 {
@@ -120,11 +121,14 @@ a custom function for your shell.
 
 ### Shell Agnostic
 
-1. Add the following [executable definition][npm-bin] to your `package.json`:
+1. Add the following [executable definition][npm-bin] to your `package.json`.
+   The outer curly braces aren't necessary and the executable definition can be
+   at the same indent level as the basic `package.json` fields like `name` and
+   `version`:
    ```json
    {"bin": {"shorten": "cli.js"}}
    ```
-2. Create the `cli.js` file:
+2. Create the `cli.js` file in the same directory as the `package.json` file:
    ```js
    #!/usr/bin/env node
    require('netlify-shortener')
@@ -227,6 +231,7 @@ Thanks goes to these people ([emoji key][emojis]):
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors][all-contributors] specification.
